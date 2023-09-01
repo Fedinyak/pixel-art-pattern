@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable @typescript-eslint/no-restricted-imports */
@@ -10,6 +11,10 @@
 /* eslint-disable array-callback-return */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import {
+  Button,
+  //  Col, Row
+} from 'antd';
 // import { incrementByAmount } from "../../slices/counterSlice";
 // eslint-disable-next-line import/no-extraneous-dependencies
 // import { Button } from 'antd';
@@ -124,71 +129,52 @@ const CanvasSection = () => {
 
   return (
     <section>
-      <br />
-      <Size />
-      <br />
-      <br />
-      <ColorSection />
-      <br />
-      {/* <button type="button" onClick={() => dispatch(changeActiveColor('#ff2222'))}>
-        red color
-      </button>
-      <button type="button" onClick={() => dispatch(changeActiveColor('#4caf50'))}>
-        green color
-      </button> */}
-      {/* <button
-        type="button"
-        onClick={() => {
-          dispatch(toggleEraser(!eraser));
-        }}
+      {/* <Row> */}
+      {/* <Col xs={24} sm={24} md={12} lg={12} xl={12}> */}
+      <div style={{
+        display: 'flex', flexWrap: 'wrap', width: '100%',
+      }}
       >
-        eraser
-        {' '}
-        {`${eraser}`}
-      </button>
-      <br />
-      <button type="button" onClick={() => dispatch(changeBackgroundColor('#ffeb3b'))}>
-        yellow bg
-      </button>
-      <button type="button" onClick={() => dispatch(changeBackgroundColor('#000000'))}>
-        black bg
-      </button> */}
-      <br />
-      {/* <p>{canvas.cells[0].text}</p> */}
-      <div style={{ width: canvasWidth }}>
-        <div style={{
-          display: 'flex', flexWrap: 'wrap', width: '100%', border: '1px solid #9E9E9E',
-        }}
-        >
-          {cells.map((item: any) =>
+        <div style={{ width: canvasWidth }}>
+          <div style={{
+            display: 'flex', flexWrap: 'wrap', width: '100%', border: '1px solid #9E9E9E',
+          }}
+          >
+            {cells.map((item: any) =>
             // console.log(item, "cell");
             // eslint-disable-next-line implicit-arrow-linebreak
-            (
+              (
               // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-              <div
-                style={{
-                  backgroundColor: item.color,
-                  width: `${canvasWidth / size}px`,
-                  height: `${canvasWidth / size}px`,
-                  boxSizing: 'border-box',
-                  border: '1px solid #9E9E9E',
-                }}
-                onClick={handleClick}
-                id={item.id}
-                key={item.id}
-              >
-                {/* {item.color} */}
-                <br />
-                {/* {item.text} */}
-              </div>
-            ))}
+                <div
+                  style={{
+                    backgroundColor: item.color,
+                    width: `${canvasWidth / size}px`,
+                    height: `${canvasWidth / size}px`,
+                    boxSizing: 'border-box',
+                    border: '1px solid #9E9E9E',
+                  }}
+                  onClick={handleClick}
+                  id={item.id}
+                  key={item.id}
+                >
+                  {/* {item.color} */}
+                  <br />
+                  {/* {item.text} */}
+                </div>
+              ))}
+          </div>
+        </div>
+        {/* </Col>
+        <Col xs={24} sm={24} md={12} lg={12} xl={12}> */}
+        <div>
+          <Size />
+          <Button onClick={() => { dispatch(addCells(createCanvas(size))); }}>Clear canvas</Button>
+          <ColorSection />
+          <Zoom />
         </div>
       </div>
-      <br />
-      <Zoom />
-      <br />
-      <br />
-
+      {/* </Col>
+      </Row> */}
       <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
         {
           // eslint-disable-next-line react/jsx-key

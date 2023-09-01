@@ -5,9 +5,12 @@
 import React from 'react';
 import {
   // Select,
-  Space, Typography, Col,
+  // Space,
+  Typography,
+  // Col,
   // InputNumber,
-  Row, Slider,
+  // Row,
+  Slider, InputNumber,
 } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeZoom } from '../../slices/counterCanvas';
@@ -89,24 +92,35 @@ const Zoom = () => {
   const onChange = (newValue: number) => {
     dispatch(changeZoom(newValue));
   };
+
+  const handleChangeZoom = (newValue: any) => {
+    dispatch(changeZoom(newValue));
+  };
+
   return (
     <>
       <Text>
         Zoom
-        {' '}
-        {`${zoom}`}
       </Text>
-      <Space style={{ width: '100%' }} direction="vertical">
+      <InputNumber
+        min={1}
+        max={6}
+        defaultValue={zoom}
+        value={zoom}
+        size="large"
+        onChange={handleChangeZoom}
+      />
+      {/* <Space style={{ width: '100%' }} direction="vertical">
         <Row>
-          <Col span={12}>
-            <Slider
-              min={1}
-              max={6}
-              onChange={onChange}
-              value={typeof zoom === 'number' ? zoom : 0}
-            />
-          </Col>
-          {/* <Col span={4}>
+      <Col span={12}> */}
+      <Slider
+        min={1}
+        max={6}
+        onChange={onChange}
+        value={typeof zoom === 'number' ? zoom : 0}
+      />
+      {/* </Col>
+     <Col span={4}>
         <InputNumber
           min={1}
           max={20}
@@ -114,10 +128,11 @@ const Zoom = () => {
           value={inputValue}
           onChange={onChange}
         />
-      </Col> */}
-        </Row>
-        {/* <DecimalStep /> */}
-      </Space>
+      </Col>  */}
+      {/* </Row> */}
+      {/* <DecimalStep /> */}
+      {/* </Space> */}
+
     </>
   );
 };
