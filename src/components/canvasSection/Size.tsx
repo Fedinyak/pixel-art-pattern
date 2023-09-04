@@ -5,6 +5,7 @@
 import React from 'react';
 import { Select, Space, Typography } from 'antd';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { changeSize } from '../../slices/counterCanvas';
 
 const { Text } = Typography;
@@ -12,13 +13,15 @@ const { Text } = Typography;
 const SelectSize = () => {
   const dispatch = useDispatch();
 
+  const { t } = useTranslation();
+
   const handleChange = (value: string) => {
     dispatch(changeSize(parseInt(value, 10)));
   };
 
   return (
     <>
-      <Text>Select size</Text>
+      <Text>{t('selectSize')}</Text>
       <Space wrap>
         <Select
           defaultValue="3"

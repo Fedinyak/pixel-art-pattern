@@ -20,6 +20,7 @@ import {
 // eslint-disable-next-line import/no-extraneous-dependencies
 // import { Button } from 'antd';
 // import { ColorPicker } from 'antd';
+import { useTranslation } from 'react-i18next';
 import {
   addCells,
   cellsType,
@@ -34,6 +35,7 @@ import Size from './Size';
 import Zoom from './Zoom';
 // import ColorPicker from './ColorPicker';
 import ColorSection from './ColorSection';
+import LanguageSwitchBtn from './LanguageSwitchBtn';
 
 // const { Content } = Layout;
 
@@ -45,6 +47,8 @@ const CanvasSection = () => {
   } = useSelector((state: any) => state.canvas);
   // Возвращает метод store.dispatch() текущего хранилища
   const dispatch = useDispatch();
+
+  const { t } = useTranslation();
 
   const createCanvas = (canvasSize: number): cellsType[] => {
     const resultCells = [];
@@ -139,6 +143,7 @@ const CanvasSection = () => {
 
   return (
     <section>
+      <LanguageSwitchBtn />
       {/* <div style={{
         // position: 'fixed',
         width: '100%',
@@ -192,7 +197,7 @@ const CanvasSection = () => {
         <Col xs={24} sm={24} md={12} lg={12} xl={12}> */}
         <div>
           <Size />
-          <Button onClick={() => { dispatch(addCells(createCanvas(size))); }}>Clear canvas</Button>
+          <Button onClick={() => { dispatch(addCells(createCanvas(size))); }}>{t('clearCanvas')}</Button>
           <ColorSection />
           <Zoom />
         </div>

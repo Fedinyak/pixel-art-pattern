@@ -9,6 +9,7 @@ import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 // import ColorPicker from './ColorPicker';
 import { CloseSquareOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 import { changeActiveColor, changeBackgroundColor, toggleEraser } from '../../slices/counterCanvas';
 import ColorPicker from './ColorPicker';
 
@@ -32,6 +33,7 @@ const ColorSection = () => {
   //   eraser,
   } = useSelector((state: any) => state.canvas);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const onChange = (key: string) => {
     if (key === '3') {
@@ -45,18 +47,18 @@ const ColorSection = () => {
   const items: TabsProps['items'] = [
     {
       key: '1',
-      label: <ColorBox title="Color" activeColor={activeColor} />,
+      label: <ColorBox title={t('activeColor')} activeColor={activeColor} />,
       children: <ColorPicker activeColor={activeColor} cb={changeActiveColor} />,
     },
     {
       key: '2',
-      label: <ColorBox title="Bg Color" activeColor={backgroundColor} />,
+      label: <ColorBox title={t('bgColor')} activeColor={backgroundColor} />,
       children: <ColorPicker activeColor={backgroundColor} cb={changeBackgroundColor} />,
     },
     {
       key: '3',
       // eslint-disable-next-line react/jsx-one-expression-per-line
-      label: <><p><b>Eraser</b></p><CloseSquareOutlined style={{ fontSize: '50px', color: '#444444' }} /></>,
+      label: <><p><b>{t('eraser')}</b></p><CloseSquareOutlined style={{ fontSize: '50px', color: '#444444' }} /></>,
       children: <CloseSquareOutlined style={{ fontSize: '50px', marginTop: 20, marginBottom: 23 }} />,
     },
   ];

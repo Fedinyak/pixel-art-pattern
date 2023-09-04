@@ -12,6 +12,7 @@ import {
   // Row,
   Slider, InputNumber,
 } from 'antd';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeZoom } from '../../slices/counterCanvas';
 // import { useDispatch } from 'react-redux';
@@ -93,15 +94,15 @@ const Zoom = () => {
     dispatch(changeZoom(newValue));
   };
 
+  const { t } = useTranslation();
+
   const handleChangeZoom = (newValue: any) => {
     dispatch(changeZoom(newValue));
   };
 
   return (
     <>
-      <Text>
-        Zoom
-      </Text>
+      <Text>{t('zoom')}</Text>
       <InputNumber
         min={1}
         max={10}
