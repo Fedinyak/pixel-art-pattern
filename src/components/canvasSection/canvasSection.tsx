@@ -13,6 +13,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   Button,
+  // Layout,
   //  Col, Row
 } from 'antd';
 // import { incrementByAmount } from "../../slices/counterSlice";
@@ -33,6 +34,8 @@ import Size from './Size';
 import Zoom from './Zoom';
 // import ColorPicker from './ColorPicker';
 import ColorSection from './ColorSection';
+
+// const { Content } = Layout;
 
 const CanvasSection = () => {
   // Вытаскиваем данные из хранилища. state — все состояние
@@ -125,14 +128,35 @@ const CanvasSection = () => {
     console.log(newCells, 'cells---');
   };
 
-  const count = 1000;
+  // const count = 1000;
+  const count = Math.round(((window.innerWidth / (size * (zoom + 1))) * ((window.innerHeight / 2) / (size * (zoom + 1)))) / 4 + 150);
+
+  // width / size
+  // 320 / 3 = 106
+  // height / size
+  // 1200 / 3 = 400
+  // 106* 400
 
   return (
     <section>
+      {/* <div style={{
+        // position: 'fixed',
+        width: '100%',
+        height: window.innerHeight,
+        zIndex: '-1',
+        backgroundColor: 'red',
+        overflow: 'hidden',
+      }}
+      > */}
+
+      {/* </div> */}
+      {/* <Layout>
+        <Content style={{ padding: '0 9px' }}> */}
       {/* <Row> */}
       {/* <Col xs={24} sm={24} md={12} lg={12} xl={12}> */}
+
       <div style={{
-        display: 'flex', flexWrap: 'wrap', width: '100%',
+        display: 'flex', flexWrap: 'wrap', margin: 'auto', justifyContent: 'center', backgroundColor: '#ffffff',
       }}
       >
         <div style={{ width: canvasWidth }}>
@@ -173,14 +197,26 @@ const CanvasSection = () => {
           <Zoom />
         </div>
       </div>
-      {/* </Col>
-      </Row> */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%' }}>
-        {
+      <p>{count}</p>
+      <div style={{
+        width: '100%',
+        height: 400,
+        overflow: 'hidden',
+        backgroundColor: 'red',
+      }}
+      >
+        <div style={{ display: 'flex', flexWrap: 'wrap', width: '110%' }}>
+          {
           // eslint-disable-next-line react/jsx-key
           [...Array(count)].map(() => <CanvasRepeatSection cells={cells} size={size} zoom={zoom} />)
         }
+        </div>
       </div>
+      {/* </Content>
+      </Layout> */}
+      {/* </Col>
+      </Row> */}
+
     </section>
   );
 };

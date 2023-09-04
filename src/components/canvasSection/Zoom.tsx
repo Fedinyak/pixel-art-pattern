@@ -104,7 +104,7 @@ const Zoom = () => {
       </Text>
       <InputNumber
         min={1}
-        max={6}
+        max={10}
         defaultValue={zoom}
         value={zoom}
         size="large"
@@ -115,7 +115,7 @@ const Zoom = () => {
       <Col span={12}> */}
       <Slider
         min={1}
-        max={6}
+        max={10}
         onChange={onChange}
         value={typeof zoom === 'number' ? zoom : 0}
       />

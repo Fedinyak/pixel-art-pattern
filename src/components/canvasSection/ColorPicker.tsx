@@ -20,14 +20,17 @@ const ColorPickerTest = ({ activeColor, cb }:any) => {
     dispatch(cb(color.hex));
   };
   return (
-    <Compact
-      color={activeColor}
-      onChangeComplete={handleChangeColor}
-      // disableAlpha={false}
-      // eslint-disable-next-line max-len
-      // presetColors={['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505', '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000', '#4A4A4A', '#9B9B9B', '#FFFFFF']}
-      // width="250px"
-    />
+    <div
+      style={{
+        display: 'flex', width: '100%', justifyContent: 'center', backgroundColor: '#ffffff',
+      }}
+    >
+
+      <Compact
+        color={activeColor}
+        onChangeComplete={handleChangeColor}
+      />
+    </div>
   );
 };
 
