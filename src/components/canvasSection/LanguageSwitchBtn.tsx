@@ -8,8 +8,6 @@ import { Segmented } from 'antd';
 import { useTranslation } from 'react-i18next';
 
 const LanguageSwitchBtn = (): JSX.Element => {
-  // eslint-disable-next-line functional/no-expression-statements
-  console.log('');
   const { i18n } = useTranslation();
   const getLang = i18n.language;
 

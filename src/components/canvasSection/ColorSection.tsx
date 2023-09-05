@@ -20,6 +20,7 @@ const ColorBox = ({ title, activeColor }:{ title: string; activeColor:string; })
       style={{
         width: '40px',
         height: '40px',
+        border: '1px solid #9E9E9E',
         backgroundColor: activeColor,
       }}
     />
@@ -69,6 +70,7 @@ const ColorSection = () => {
         onChange={onChange}
         type="card"
         items={items}
+        centered
       />
       {/* <p><b>Active color</b></p>
       <div

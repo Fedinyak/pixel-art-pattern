@@ -5,20 +5,28 @@
 import React from 'react';
 import {
   // Select,
-  // Space,
+  Space,
   Typography,
-  // Col,
+  Col,
   // InputNumber,
-  // Row,
+  Row,
   Slider, InputNumber,
 } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 import { changeZoom } from '../../slices/counterCanvas';
 // import { useDispatch } from 'react-redux';
 // import { changeSize } from '../../slices/counterCanvas';
 
 const { Text } = Typography;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
 
 // const IntegerStep = () => {
 //   const { zoom}  = useSelector((state: any) => state.canvas);
@@ -101,27 +109,29 @@ const Zoom = () => {
   };
 
   return (
-    <>
-      <Text>{t('zoom')}</Text>
-      <InputNumber
-        min={1}
-        max={10}
-        defaultValue={zoom}
-        value={zoom}
-        size="large"
-        onChange={handleChangeZoom}
-      />
-      {/* <Space style={{ width: '100%' }} direction="vertical">
+    <Wrapper>
+      <Space>
+        <Text>{t('zoom')}</Text>
+        <InputNumber
+          min={1}
+          max={10}
+          defaultValue={zoom}
+          value={zoom}
+        // size="large"
+          onChange={handleChangeZoom}
+        />
+      </Space>
+      <Space style={{ width: 120 }} direction="vertical">
         <Row>
-      <Col span={12}> */}
-      <Slider
-        min={1}
-        max={10}
-        onChange={onChange}
-        value={typeof zoom === 'number' ? zoom : 0}
-      />
-      {/* </Col>
-     <Col span={4}>
+          <Col span={24}>
+            <Slider
+              min={1}
+              max={10}
+              onChange={onChange}
+              value={typeof zoom === 'number' ? zoom : 0}
+            />
+          </Col>
+          {/* <Col span={4}>
         <InputNumber
           min={1}
           max={20}
@@ -130,11 +140,11 @@ const Zoom = () => {
           onChange={onChange}
         />
       </Col>  */}
-      {/* </Row> */}
-      {/* <DecimalStep /> */}
-      {/* </Space> */}
+        </Row>
+        {/* <DecimalStep /> */}
+      </Space>
 
-    </>
+    </Wrapper>
   );
 };
 

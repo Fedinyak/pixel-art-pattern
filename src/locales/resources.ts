@@ -14,7 +14,7 @@ export default {
       selectSize: 'Size',
       clearCanvas: 'Clear canvas',
       activeColor: 'Color',
-      bgColor: 'Background color',
+      bgColor: 'Fill',
       eraser: 'Eraser',
       zoom: 'Zoom',
     },

@@ -21,6 +21,7 @@ import {
 // import { Button } from 'antd';
 // import { ColorPicker } from 'antd';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 import {
   addCells,
   cellsType,
@@ -38,6 +39,52 @@ import ColorSection from './ColorSection';
 import LanguageSwitchBtn from './LanguageSwitchBtn';
 
 // const { Content } = Layout;
+
+const CanvasWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  border: 1px solid #9e9e9e;
+`;
+
+const CanvasContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 320px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #FFFFFF;
+  z-index: 1;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.20));
+  @media (min-width: 660px) {
+    margin: 0;
+  }
+`;
+
+const CanvasRepeatWrapper = styled.div`
+  width: 100%;
+  /* width: 320px; */
+  height: 320px;
+  overflow: hidden;
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.20));
+  @media (min-width: 660px) {
+    width: 320px;
+    height: 640px;
+  }
+  /* background-color: red, */
+`;
+
+const CanvasRepeatFlexWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 110%;
+`;
 
 const CanvasSection = () => {
   // Вытаскиваем данные из хранилища. state — все состояние
@@ -133,7 +180,7 @@ const CanvasSection = () => {
   };
 
   // const count = 1000;
-  const count = Math.round(((window.innerWidth / (size * (zoom + 1))) * ((window.innerHeight / 2) / (size * (zoom + 1)))) / 4 + 150);
+  const count = Math.round(((window.innerWidth / (size * (zoom + 1))) * ((window.innerHeight / 2) / (size * (zoom + 1)))) / 4 + 160);
 
   // width / size
   // 320 / 3 = 106
@@ -142,9 +189,18 @@ const CanvasSection = () => {
   // 106* 400
 
   return (
-    <section>
-      <LanguageSwitchBtn />
-      {/* <div style={{
+    <>
+      <section
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          paddingTop: 30,
+          paddingBottom: 30,
+          backgroundColor,
+        }}
+      >
+        {/* <div style={{
         // position: 'fixed',
         width: '100%',
         height: window.innerHeight,
@@ -154,26 +210,27 @@ const CanvasSection = () => {
       }}
       > */}
 
-      {/* </div> */}
-      {/* <Layout>
+        {/* </div> */}
+        {/* <Layout>
         <Content style={{ padding: '0 9px' }}> */}
-      {/* <Row> */}
-      {/* <Col xs={24} sm={24} md={12} lg={12} xl={12}> */}
+        {/* <Row> */}
+        {/* <Col xs={24} sm={24} md={12} lg={12} xl={12}> */}
 
-      <div style={{
+        {/* <div style={{
         display: 'flex', flexWrap: 'wrap', margin: 'auto', justifyContent: 'center', backgroundColor: '#ffffff',
       }}
-      >
-        <div style={{ width: canvasWidth }}>
-          <div style={{
-            display: 'flex', flexWrap: 'wrap', width: '100%', border: '1px solid #9E9E9E',
+      > */}
+        <CanvasContainer>
+          <div style={{ width: canvasWidth }}>
+            <CanvasWrapper>
+              {/* <div style={{
+            display: 'flex', flexWrap: 'wrap', width: '300px', border: '1px solid #9E9E9E',
           }}
-          >
-            {cells.map((item: any) =>
-            // console.log(item, "cell");
-            // eslint-disable-next-line implicit-arrow-linebreak
-              (
-              // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+          > */}
+              {cells.map((item: any) => (
+                // console.log(item, "cell");
+                // eslint-disable-next-line implicit-arrow-linebreak
+                // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
                 <div
                   style={{
                     backgroundColor: item.color,
@@ -191,38 +248,53 @@ const CanvasSection = () => {
                   {/* {item.text} */}
                 </div>
               ))}
+              {/* </div> */}
+            </CanvasWrapper>
           </div>
-        </div>
-        {/* </Col>
+          <div style={{ width: canvasWidth }}>
+            {/* </Col>
         <Col xs={24} sm={24} md={12} lg={12} xl={12}> */}
-        <div>
-          <Size />
-          <Button onClick={() => { dispatch(addCells(createCanvas(size))); }}>{t('clearCanvas')}</Button>
-          <ColorSection />
-          <Zoom />
-        </div>
-      </div>
-      <p>{count}</p>
-      <div style={{
+            <Size />
+            <Button
+              onClick={() => {
+                dispatch(addCells(createCanvas(size)));
+              }}
+            >
+              {t('clearCanvas')}
+            </Button>
+            <ColorSection />
+            <Zoom />
+          </div>
+        </CanvasContainer>
+
+        <CanvasRepeatWrapper>
+          {/* <div style={{
         width: '100%',
         height: 400,
         overflow: 'hidden',
         backgroundColor: 'red',
       }}
-      >
-        <div style={{ display: 'flex', flexWrap: 'wrap', width: '110%' }}>
-          {
-          // eslint-disable-next-line react/jsx-key
-          [...Array(count)].map(() => <CanvasRepeatSection cells={cells} size={size} zoom={zoom} />)
-        }
-        </div>
-      </div>
-      {/* </Content>
+      > */}
+          <CanvasRepeatFlexWrapper>
+            {/* <div style={{ display: 'flex', flexWrap: 'wrap', width: '110%' }}> */}
+            {
+              // eslint-disable-next-line react/jsx-key
+              [...Array(count)].map(() => (<CanvasRepeatSection cells={cells} size={size} zoom={zoom} />))
+            }
+            {/* </div> */}
+          </CanvasRepeatFlexWrapper>
+          {/* </div> */}
+        </CanvasRepeatWrapper>
+        {/* </Content>
       </Layout> */}
-      {/* </Col>
+        {/* </Col>
       </Row> */}
-
-    </section>
+      </section>
+      <footer>
+        <p>{count}</p>
+        <LanguageSwitchBtn />
+      </footer>
+    </>
   );
 };
 
