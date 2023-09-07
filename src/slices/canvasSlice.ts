@@ -19,8 +19,9 @@ interface stateType {
   size: number;
   zoom: number;
   canvasWidth: number;
-  eraser: boolean
-  cells: cellsType[]
+  eraser: boolean;
+  cells: cellsType[];
+  svgCanvas: string;
 }
 
 const initialState: stateType = {
@@ -31,6 +32,7 @@ const initialState: stateType = {
   canvasWidth: 300,
   eraser: false,
   cells: [],
+  svgCanvas: '',
 };
 
 export const canvasSlice = createSlice({
@@ -55,11 +57,20 @@ export const canvasSlice = createSlice({
     toggleEraser: (state, action: PayloadAction<boolean>) => {
       state.eraser = action.payload;
     },
+    addSvgCanvas: (state, action: PayloadAction<string>) => {
+      state.svgCanvas = action.payload;
+    },
   },
 });
 
 export const {
-  addCells, changeSize, changeActiveColor, changeBackgroundColor, changeZoom, toggleEraser,
+  addCells,
+  changeSize,
+  changeActiveColor,
+  changeBackgroundColor,
+  changeZoom,
+  toggleEraser,
+  addSvgCanvas,
 } = canvasSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type

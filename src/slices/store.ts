@@ -1,12 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from './counterSlice';
-import counterCanvas from './counterCanvas';
+import canvasReducer from './canvasSlice';
 
 export const store = configureStore({
   reducer: {
-    // posts: postsReducer,
-    counter: counterReducer,
-    canvas: counterCanvas,
+    canvas: canvasReducer,
   },
 });
 

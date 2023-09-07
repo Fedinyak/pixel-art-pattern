@@ -15,7 +15,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { changeZoom } from '../../slices/counterCanvas';
+import { changeZoom } from '../../slices/canvasSlice';
 // import { useDispatch } from 'react-redux';
 // import { changeSize } from '../../slices/counterCanvas';
 
@@ -24,8 +24,10 @@ const { Text } = Typography;
 const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
 `;
 
 // const IntegerStep = () => {
@@ -108,13 +110,15 @@ const Zoom = () => {
     dispatch(changeZoom(newValue));
   };
 
+  const maxZoom = 15;
+
   return (
     <Wrapper>
-      <Space>
+      <Space size="small">
         <Text>{t('zoom')}</Text>
         <InputNumber
           min={1}
-          max={10}
+          max={maxZoom}
           defaultValue={zoom}
           value={zoom}
         // size="large"
@@ -126,7 +130,7 @@ const Zoom = () => {
           <Col span={24}>
             <Slider
               min={1}
-              max={10}
+              max={maxZoom}
               onChange={onChange}
               value={typeof zoom === 'number' ? zoom : 0}
             />

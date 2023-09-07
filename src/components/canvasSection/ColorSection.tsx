@@ -10,21 +10,90 @@ import type { TabsProps } from 'antd';
 // import ColorPicker from './ColorPicker';
 import { CloseSquareOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
-import { changeActiveColor, changeBackgroundColor, toggleEraser } from '../../slices/counterCanvas';
+import styled from 'styled-components';
+import { changeActiveColor, changeBackgroundColor, toggleEraser } from '../../slices/canvasSlice';
 import ColorPicker from './ColorPicker';
 
+const TabWrapper = styled.div`
+  width: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* margin-top: 20px; */
+`;
+
+const TabEraserWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const TabEraserShadowBoxWrapper = styled.div`
+  width: 245px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 10px, rgba(0, 0, 0, 0.16) 0px 2px 5px;
+  border-radius: 2px;
+  background: rgb(255, 255, 255);
+  text-align: center;
+`;
+
+const Title = styled.p`
+  margin-top: 0;
+  margin-bottom: 4px;
+  font-weight: bolder;
+`;
+
 const ColorBox = ({ title, activeColor }:{ title: string; activeColor:string; }) => (
-  <>
-    <p><b>{title}</b></p>
+  <TabWrapper>
+    <Title>
+      {title}
+    </Title>
     <div
       style={{
         width: '40px',
         height: '40px',
         border: '1px solid #9E9E9E',
         backgroundColor: activeColor,
+        marginLeft: 10,
+        marginRight: 10,
       }}
     />
-  </>
+  </TabWrapper>
+);
+
+const EraserTab = ({ title }:{ title: string; }) => (
+  <TabWrapper>
+    <Title style={{ marginBottom: -1, paddingBottom: 4 }}>
+      {title}
+    </Title>
+    {/* <div style={{ marginTop: 2 }}> */}
+
+    <CloseSquareOutlined style={{
+      fontSize: '49px',
+      // lineHeight: '100px',
+      // marginTop: 23,
+      // flexBasis: 10,
+      // paddingTop: 12,
+      color: '#808080',
+      display: 'contents',
+    }}
+    />
+    {/* </div> */}
+  </TabWrapper>
+);
+
+const EraserTabChildren = () => (
+  <TabEraserWrapper>
+    <TabEraserShadowBoxWrapper>
+      <CloseSquareOutlined style={{
+        fontSize: '49px',
+        marginTop: 22,
+        marginBottom: 22,
+        color: '#808080',
+        // display: 'block',
+      }}
+      />
+    </TabEraserShadowBoxWrapper>
+  </TabEraserWrapper>
 );
 
 const ColorSection = () => {
@@ -58,9 +127,8 @@ const ColorSection = () => {
     },
     {
       key: '3',
-      // eslint-disable-next-line react/jsx-one-expression-per-line
-      label: <><p><b>{t('eraser')}</b></p><CloseSquareOutlined style={{ fontSize: '50px', color: '#444444' }} /></>,
-      children: <CloseSquareOutlined style={{ fontSize: '50px', marginTop: 20, marginBottom: 23 }} />,
+      label: <EraserTab title={t('eraser')} />,
+      children: <EraserTabChildren />,
     },
   ];
 
@@ -70,6 +138,7 @@ const ColorSection = () => {
         onChange={onChange}
         type="card"
         items={items}
+        size="small"
         centered
       />
       {/* <p><b>Active color</b></p>

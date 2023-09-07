@@ -6,7 +6,7 @@ import React from 'react';
 import { Select, Space, Typography } from 'antd';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { changeSize } from '../../slices/counterCanvas';
+import { changeSize } from '../../slices/canvasSlice';
 
 const { Text } = Typography;
 
@@ -20,7 +20,7 @@ const SelectSize = () => {
   };
 
   return (
-    <>
+    <Space>
       <Text>{t('selectSize')}</Text>
       <Space wrap>
         <Select
@@ -36,7 +36,7 @@ const SelectSize = () => {
           ]}
         />
       </Space>
-    </>
+    </Space>
   );
 };
 
