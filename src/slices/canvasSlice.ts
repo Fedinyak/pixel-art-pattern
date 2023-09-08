@@ -28,7 +28,7 @@ const initialState: stateType = {
   activeColor: '#F44E3B',
   backgroundColor: '#009CE0',
   size: 3,
-  zoom: 2,
+  zoom: 15,
   canvasWidth: 300,
   eraser: false,
   cells: [],
