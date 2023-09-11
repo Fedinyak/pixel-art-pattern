@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   justify-content: space-around;
   align-items: center;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 const Zoom = () => {

@@ -22,7 +22,7 @@
 // };
 
 // const createSvgCanvas = (state:any) => {
-const createSvgCanvas = (size:any, cells: any, backgroundColor:any) => {
+const createSvgCanvas = (size:number, cells: any, backgroundColor:string) => {
   // const {
   //   size, cells,
   //   // zoom,

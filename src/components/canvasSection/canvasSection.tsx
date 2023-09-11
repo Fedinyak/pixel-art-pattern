@@ -41,6 +41,7 @@ import Zoom from './Zoom';
 import ColorSection from './ColorSection';
 import LanguageSwitchBtn from './LanguageSwitchBtn';
 import createSvgCanvas from '../../utility/createSvgCanvas';
+import ExportSvgSection from './ExportSvgSection';
 
 // const { Content } = Layout;
 
@@ -298,12 +299,11 @@ const CanvasSection = () => {
 
           <ColorSection />
           <Zoom />
-          <LanguageSwitchBtn />
-          {/* <Button
-              onClick={() => {
-                dispatch(addCells(createCanvas(size)));
-              }}
-            >
+          <SizeWrap>
+            <LanguageSwitchBtn />
+            <ExportSvgSection />
+          </SizeWrap>
+          {/* <Button onClick={handleDownloadSvg} >
               Export svg
             </Button> */}
           {/* <Copyright>© Andrey Fedinyak</Copyright> */}
