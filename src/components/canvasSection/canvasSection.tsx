@@ -300,8 +300,8 @@ const CanvasSection = () => {
           <ColorSection />
           <Zoom />
           <SizeWrap>
-            <LanguageSwitchBtn />
             <ExportSvgSection />
+            <LanguageSwitchBtn />
           </SizeWrap>
           {/* <Button onClick={handleDownloadSvg} >
               Export svg
