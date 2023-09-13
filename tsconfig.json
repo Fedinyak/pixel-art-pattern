@@ -18,7 +18,7 @@
   },
   "include": [
     "src",
-    "jest.config.ts",
+    "jest.config.js",
     "babel.config.ts",
     "__tests__",
     "__fixtures__"
