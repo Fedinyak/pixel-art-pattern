@@ -16,5 +16,11 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "jest.config.js", "__tests__", "__fixtures__"]
+  "include": [
+    "src",
+    "jest.config.ts",
+    "babel.config.ts",
+    "__tests__",
+    "__fixtures__"
+  ]
 }
