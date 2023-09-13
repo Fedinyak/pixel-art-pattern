@@ -42,6 +42,7 @@ import ColorSection from './ColorSection';
 import LanguageSwitchBtn from './LanguageSwitchBtn';
 import createSvgCanvas from '../../utility/createSvgCanvas';
 import ExportSvgSection from './ExportSvgSection';
+import createCanvas from '../../utility/createCanvas';
 
 // const { Content } = Layout;
 
@@ -150,22 +151,22 @@ const CanvasSection = () => {
 
   const { t } = useTranslation();
 
-  const createCanvas = (canvasSize: number): cellsType[] => {
-    const resultCells = [];
-    let counter = 0;
-    for (let i = 0; i < canvasSize; i += 1) {
-      for (let j = 0; j < canvasSize; j += 1) {
-        counter += 1;
-        resultCells.push({
-          id: `row${i + 1}-col${j + 1}-index${counter}`,
-          color: backgroundColor,
-          backgroundType: true,
-          // [`row${i + 1}col${j + 1}`]: { id: `row${i + 1}-col${j + 1}`, color: color, backgroundType: true, },
-        });
-      }
-    }
-    return resultCells;
-  };
+  // const createCanvas = (canvasSize: number): cellsType[] => {
+  //   const resultCells = [];
+  //   let counter = 0;
+  //   for (let i = 0; i < canvasSize; i += 1) {
+  //     for (let j = 0; j < canvasSize; j += 1) {
+  //       counter += 1;
+  //       resultCells.push({
+  //         id: `row${i + 1}-col${j + 1}-index${counter}`,
+  //         color: backgroundColor,
+  //         backgroundType: true,
+  //         // [`row${i + 1}col${j + 1}`]: { id: `row${i + 1}-col${j + 1}`, color: color, backgroundType: true, },
+  //       });
+  //     }
+  //   }
+  //   return resultCells;
+  // };
 
   const repaintingBackgroundColor = () => {
     const repaintingCells: cellsType[] = [];
@@ -184,7 +185,7 @@ const CanvasSection = () => {
   }, [backgroundColor]);
 
   useEffect(() => {
-    dispatch(addCells(createCanvas(size)));
+    dispatch(addCells(createCanvas(size, backgroundColor)));
   }, [size]);
 
   useEffect(() => {
@@ -290,7 +291,7 @@ const CanvasSection = () => {
             <Size />
             <Button
               onClick={() => {
-                dispatch(addCells(createCanvas(size)));
+                dispatch(addCells(createCanvas(size, backgroundColor)));
               }}
             >
               {t('clearCanvas')}
