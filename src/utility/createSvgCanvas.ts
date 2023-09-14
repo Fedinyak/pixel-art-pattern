@@ -2,33 +2,7 @@
 /* eslint-disable functional/no-conditional-statements */
 /* eslint-disable functional/no-return-void */
 /* eslint-disable functional/no-expression-statements */
-// import React from 'react';
-
-// const SvgCanvas = () => {
-//   // console.log('');
-//   return (
-//     <svg
-//       version="1.1"
-//       baseProfile="full"
-//       width="7px"
-//       height="7px"
-//       xmlns="http://www.w3.org/2000/svg"
-//     >
-//       <rect width="1px" height="1px" fill="red" />
-//       <rect x="1px" y="1px" width="1px" height="1px" fill="yellow" />
-//     </svg>
-
-//   );
-// };
-
-// const createSvgCanvas = (state:any) => {
 const createSvgCanvas = (size:number, cells: any, backgroundColor:string) => {
-  // const {
-  //   size, cells,
-  //   // zoom,
-  //   backgroundColor,
-  // } = state;
-  // } = state.canvas;
   const openTag = `<svg
       version="1.1"
       baseProfile="full"

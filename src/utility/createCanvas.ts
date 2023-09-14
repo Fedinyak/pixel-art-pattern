@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable functional/no-let */
 /* eslint-disable functional/no-loop-statements */
-
 import { cellsType } from '../slices/canvasSlice';
 
 /* eslint-disable functional/no-expression-statements */

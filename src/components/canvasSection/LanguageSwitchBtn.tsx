@@ -16,33 +16,14 @@ const LanguageSwitchBtn = (): JSX.Element => {
   };
 
   return (
-    <>
-      <Segmented
-        options={[
-          { label: 'En', value: 'en' },
-          { label: 'Ru', value: 'ru' },
-        ]}
-        value={getLang}
-        onChange={handleChange}
-      />
-
-      {/* <ToggleButtonGroup
-        color="primary"
-        value={getLang}
-        // size={{ xs: 'small', sm: 'medium' }}
-        size="small"
-        exclusive
-        onChange={handleChange}
-        aria-label="Platform"
-      >
-        <ToggleButton value="en">En</ToggleButton>
-        <ToggleButton
-          value="ru"
-        >
-          Ру
-        </ToggleButton>
-      </ToggleButtonGroup> */}
-    </>
+    <Segmented
+      options={[
+        { label: 'En', value: 'en' },
+        { label: 'Ru', value: 'ru' },
+      ]}
+      value={getLang}
+      onChange={handleChange}
+    />
   );
 };
 export default LanguageSwitchBtn;

@@ -7,7 +7,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
-// import ColorPicker from './ColorPicker';
 import { CloseSquareOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -19,7 +18,6 @@ const TabWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* margin-top: 20px; */
 `;
 
 const TabEraserWrapper = styled.div`
@@ -65,19 +63,12 @@ const EraserTab = ({ title }:{ title: string; }) => (
     <Title style={{ marginBottom: -1, paddingBottom: 4 }}>
       {title}
     </Title>
-    {/* <div style={{ marginTop: 2 }}> */}
-
     <CloseSquareOutlined style={{
       fontSize: '49px',
-      // lineHeight: '100px',
-      // marginTop: 23,
-      // flexBasis: 10,
-      // paddingTop: 12,
       color: '#808080',
       display: 'contents',
     }}
     />
-    {/* </div> */}
   </TabWrapper>
 );
 
@@ -89,7 +80,6 @@ const EraserTabChildren = () => (
         marginTop: 22,
         marginBottom: 22,
         color: '#808080',
-        // display: 'block',
       }}
       />
     </TabEraserShadowBoxWrapper>
@@ -100,7 +90,6 @@ const ColorSection = () => {
   const {
     activeColor,
     backgroundColor,
-  //   eraser,
   } = useSelector((state: any) => state.canvas);
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -133,24 +122,13 @@ const ColorSection = () => {
   ];
 
   return (
-    <>
-      <Tabs
-        onChange={onChange}
-        type="card"
-        items={items}
-        size="small"
-        centered
-      />
-      {/* <p><b>Active color</b></p>
-      <div
-        style={{
-          width: '40px',
-          height: '40px',
-          backgroundColor: activeColor,
-        }}
-      /> */}
-      {/* <ColorPicker /> */}
-    </>
+    <Tabs
+      onChange={onChange}
+      type="card"
+      items={items}
+      size="small"
+      centered
+    />
   );
 };
 
