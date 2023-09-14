@@ -21,12 +21,12 @@ import {
   addSvgCanvas,
   cellsType,
 } from '../../slices/canvasSlice';
-import Size from './Size';
-import Zoom from './Zoom';
-import ColorSection from './ColorSection';
-import LanguageSwitchBtn from './LanguageSwitchBtn';
+import Size from '../editor/Size';
+import Zoom from '../editor/Zoom';
+import Editor from '../editor/Editor';
+import LanguageSwitchBtn from '../editor/LanguageSwitchBtn';
 import createSvgCanvas from '../../utility/createSvgCanvas';
-import ExportSvgSection from './ExportSvgSection';
+import ExportSvgSection from '../editor/ExportSvgSection';
 import createCanvas from '../../utility/createCanvas';
 
 const Logo = styled.h1`
@@ -192,7 +192,7 @@ const CanvasSection = () => {
               {t('clearCanvas')}
             </Button>
           </SizeWrap>
-          <ColorSection />
+          <Editor />
           <Zoom />
           <SizeWrap>
             <ExportSvgSection />

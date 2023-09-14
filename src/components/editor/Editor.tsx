@@ -86,7 +86,7 @@ const EraserTabChildren = () => (
   </TabEraserWrapper>
 );
 
-const ColorSection = () => {
+const Editor = () => {
   const {
     activeColor,
     backgroundColor,
@@ -132,4 +132,4 @@ const ColorSection = () => {
   );
 };
 
-export default ColorSection;
+export default Editor;

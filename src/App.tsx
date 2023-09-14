@@ -1,5 +1,5 @@
 import React from 'react';
-import CanvasSection from './components/canvasSection/CanvasSection';
+import CanvasSection from './components/canvas/CanvasSection';
 
 const App = () => (
   <div className="App">
