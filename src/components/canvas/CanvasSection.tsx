@@ -104,6 +104,10 @@ const CanvasSection = () => {
   };
 
   useEffect(() => {
+    document.title = 'PIXEL-ART PATTERN';
+  }, []);
+
+  useEffect(() => {
     dispatch(addCells(repaintingBackgroundColor()));
   }, [backgroundColor]);
 
