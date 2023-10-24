@@ -6,7 +6,7 @@ export default {
       activeColor: 'Цвет',
       bgColor: 'Цвет фона',
       eraser: 'Ластик',
-      zoom: 'Лупа',
+      zoom: 'Масштаб',
     },
   },
   en: {
