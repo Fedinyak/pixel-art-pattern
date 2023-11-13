@@ -7,6 +7,7 @@ export default {
       bgColor: 'Цвет фона',
       eraser: 'Ластик',
       zoom: 'Масштаб',
+      downloadSvg: 'Скачать SVG',
     },
   },
   en: {
@@ -17,6 +18,7 @@ export default {
       bgColor: 'Fill',
       eraser: 'Eraser',
       zoom: 'Zoom',
+      downloadSvg: 'Download SVG',
     },
   },
 

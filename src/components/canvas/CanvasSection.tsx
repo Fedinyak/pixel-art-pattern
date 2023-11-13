@@ -104,7 +104,7 @@ const CanvasSection = () => {
   };
 
   useEffect(() => {
-    document.title = 'PIXEL-ART PATTERN';
+    document.title = 'Pixel art pattern';
   }, []);
 
   useEffect(() => {

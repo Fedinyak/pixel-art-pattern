@@ -5,12 +5,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Button } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 const FileSaver = require('file-saver');
 
 const ExportSvgSection = () => {
   const { size, svgCanvas } = useSelector((state: any) => state.canvas);
-
+  const { t } = useTranslation();
   const fileName = `pixel-art-pattern-${size}×${size}.svg`;
 
   const handleDownloadSvg = () => {
@@ -20,7 +21,7 @@ const ExportSvgSection = () => {
 
   return (
     <Button onClick={handleDownloadSvg}>
-      Download SVG
+      {t('downloadSvg')}
     </Button>
   );
 };
