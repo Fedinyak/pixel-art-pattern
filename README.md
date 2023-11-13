@@ -5,6 +5,8 @@
 
 <img width="1142" alt="pixel-art-pattern-screenshot" src="/src/img/pixel-art-pattern-screenshot.png">
 
+[Go to pixel art patterns site](https://pixel-art-pattern.com/)
+
 ## Install
 
 ```sh
