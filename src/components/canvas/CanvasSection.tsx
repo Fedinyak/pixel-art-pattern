@@ -202,7 +202,6 @@ const CanvasSection = () => {
             <ExportSvgSection />
             <LanguageSwitchBtn />
           </SizeWrap>
-          {/* <Copyright>© Andrey Fedinyak</Copyright> */}
         </div>
       </CanvasContainer>
     </Container>
