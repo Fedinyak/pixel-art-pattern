@@ -42,7 +42,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 30px;
-  padding-bottom: 600px;
+  padding-bottom: 750px;
   @media (min-width: 660px) {
     justify-content: flex-start;
     padding-bottom: 260px;
